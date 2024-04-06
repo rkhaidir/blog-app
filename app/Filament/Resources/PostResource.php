@@ -67,6 +67,14 @@ class PostResource extends Resource
                                 ->multiple()
                                 ->relationship('categories', 'title')
                                 ->searchable(),
+                        Select::make('back')
+                                ->options([''=> ''])
+                                ->options(Post::all()->pluck('title', 'slug'))
+                                ->searchable(),
+                        Select::make('next')
+                                ->options([''=> ''])
+                                ->options(Post::all()->pluck('title', 'slug'))
+                                ->searchable()
                     ]
                 ),
             ]);

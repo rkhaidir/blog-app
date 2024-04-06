@@ -22,6 +22,8 @@ class Post extends Model
         "body",
         "published_at",
         "featured",
+        "back",
+        "next",
     ];
     protected $casts = [
         'published_at' => 'datetime',

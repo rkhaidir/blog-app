@@ -32,6 +32,34 @@
       {!! $content !!}
     </div>
 
+    <hr />
+
+    <div class="w-full">
+      <div class="flex justify-between gap-2 mt-16 mx-auto">
+        <div class="flex w-32 justify-start">
+          @if ($post->back === null)
+            
+          @else
+            <a href="{{ route('posts.show', $post->back) }}" class="bg-gray-300 hover:bg-gray-500 active:bg-gray-300 px-4 py-2 rounded-md">
+              Sebelumnya
+            </a>
+          @endif
+        </div>
+        <div class="flex w-64 justify-center">
+          <span class="font-bold">{{ $post->title }}</span>
+        </div>
+        <div class="flex w-32 justify-end">
+          @if ($post->next === null)
+            
+          @else
+            <a href="{{ route('posts.show', $post->next) }}" class="bg-sky-950 hover:bg-sky-800 active:bg-sky-950 px-4 py-2 rounded-md text-white">
+              Selanjutnya
+            </a>
+          @endif
+        </div>
+      </div>
+    </div>
+
     <div class="flex items-center space-x-4 mt-10">
       @foreach ($post->categories as $category)
         <x-posts.category-badge :category="$category" />
