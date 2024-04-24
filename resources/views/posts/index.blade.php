@@ -7,6 +7,14 @@
       @include('posts.partials.search-box')
 
       @include('posts.partials.categories-box')
+
+      <hr>
+
+      <div>
+        <h3 class="text-lg font-semibold text-gray-900">Visitors</h3>
+        Total Visitor: <span class="font-semibold">{{ $visitor }}</span> <br>
+        Total Visitor Today: <span class="font-semibold">{{ $visitortoday }}</span>
+      </div>
     </div>
   </div>
 </x-app-layout>

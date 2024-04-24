@@ -46,7 +46,7 @@
           @endif
         </div>
         <div class="flex w-64 justify-center">
-          <span class="font-bold">{{ $post->title }}</span>
+          <span class="font-bold">{{ $post->getExcerptTitle() }}</span>
         </div>
         <div class="flex w-32 justify-end">
           @if ($post->next === null)

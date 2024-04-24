@@ -76,6 +76,11 @@ class Post extends Model
         $query->where('featured', true);
     }
 
+    public function getExcerptTitle()
+    {
+        return Str::limit(strip_tags($this->title), 25);
+    }
+
     public function getExcerpt()
     {
         return Str::limit(strip_tags($this->body), 100);

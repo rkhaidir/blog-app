@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Visitor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -19,7 +20,9 @@ class PostController extends Controller
                     })->take(10)->get();
         });
         return view("posts.index", [
-            'categories' => $categories
+            'categories' => $categories,
+            'visitor' => Visitor::count(),
+            'visitortoday' => Visitor::where('visited_at', date('Y-m-d'))->count()
         ]);
     }
 
